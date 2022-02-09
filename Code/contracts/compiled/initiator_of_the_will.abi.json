@@ -1,0 +1,563 @@
+[
+	{
+		"inputs": [],
+		"stateMutability": "payable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "date",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			}
+		],
+		"name": "UpdateBeneficiaryShare",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "date",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			}
+		],
+		"name": "UpdateBeneficiaryWallet",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "date",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			}
+		],
+		"name": "setBeneficiaryData",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "date",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			}
+		],
+		"name": "setBeneficiaryToWill",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "date",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			}
+		],
+		"name": "setOwnerData",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_execwallet",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "_execKey",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_willId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_ownerWallet",
+				"type": "address"
+			}
+		],
+		"name": "assertDeath",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "b_firstName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "b_lastName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "b_ssn",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "b_dob",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "b_share",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "b_wallet_address",
+						"type": "address"
+					}
+				],
+				"internalType": "struct cryptoWill.beneficiary[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "beneficiariesOfWill",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "b_firstName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "b_lastName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "b_ssn",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "b_dob",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "b_share",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address payable",
+				"name": "b_wallet_address",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "string1",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "string2",
+				"type": "string"
+			}
+		],
+		"name": "compareTwoStrings",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_willId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_bssn",
+				"type": "string"
+			}
+		],
+		"name": "getBeneficiaries",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "_fname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_lname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_ssn",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_dob",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_share",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_walletAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getOwner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_willId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_owalletAddress",
+				"type": "address"
+			}
+		],
+		"name": "getWill",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "o_firstName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "o_lastName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "o_ssn",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "o_dob",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "o_wallet_address",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "b_firstName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "b_lastName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "b_ssn",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "b_dob",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "b_share",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address payable",
+								"name": "b_wallet_address",
+								"type": "address"
+							}
+						],
+						"internalType": "struct cryptoWill.beneficiary[]",
+						"name": "beneficiaries",
+						"type": "tuple[]"
+					},
+					{
+						"internalType": "address",
+						"name": "execWallet",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "execKey",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "o_pol",
+						"type": "bool"
+					}
+				],
+				"internalType": "struct cryptoWill.owner_of_the_will",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "removebeneficiariesOfWill",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_fname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_lname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_ssn",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_dob",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_share",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address payable",
+				"name": "_walletAddress",
+				"type": "address"
+			}
+		],
+		"name": "setBeneCallInternalFunc",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_willId",
+				"type": "uint256"
+			}
+		],
+		"name": "setBeneInternalFuncCall",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_firstName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_lastName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_ssn",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_dob",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "_walletAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_execWallet",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "_execKey",
+				"type": "string"
+			}
+		],
+		"name": "setOwnerdata",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "wOwner",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "o_firstName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "o_lastName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "o_ssn",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "o_dob",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "o_wallet_address",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "execWallet",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "execKey",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "o_pol",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "willOwner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
